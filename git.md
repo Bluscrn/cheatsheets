@@ -9,4 +9,5 @@ Name the repo, choose Public or Private and click **Create Repository**
 ![Github_repo_create](resources/github_repo_create.png)
 
 Copy the repo address
+
 ![Github_repo_address](resources/github_repo_address.png)
