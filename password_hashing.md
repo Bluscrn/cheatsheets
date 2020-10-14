@@ -34,7 +34,7 @@ Insert the resulting hash into Brocade CLI as:
 `enable super-user-password 8 $1$We0..yY2$z6edearokotDKDuUvWF1Y0`
 
 
-### Juniper passwords are md5 with an 8 digit salt
+### Juniper and PaloAlto passwords are md5 with an 8 digit salt
 
 `openssl passwd -1 -salt '0Rr56/RP' 'password_here'`
 
@@ -43,6 +43,28 @@ Insert the resulting hash into JunOS as:
 `set system login user authuser class super-user-local`
 
 `set system login user authuser authentication encrypted-password "$1$0Rr56/RP$3XcdF987h4ktCoIh664AI1"`
+
+Palo Alto hash goes into the .xml
+```xml
+<users>
+<entry name="backupadmin">
+<phash>$1$bamuphpn$zoYT9P1oTA81UU2T5hFk6.</phash>
+<permissions>
+<role-based>
+<superuser>yes</superuser>
+</role-based>
+</permissions>
+</entry>
+<entry name="admin">
+<permissions>
+<role-based>
+<superuser>yes</superuser>
+</role-based>
+</permissions>
+<phash>$1$cxdrnomh$AEjkLfvp6jjdSfJi/Kg8a.</phash>
+</entry>
+</users>
+```
 
 ### Cisco uses md5 with a 4 digit salt
 
