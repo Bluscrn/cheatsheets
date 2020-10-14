@@ -6,6 +6,8 @@ In order to generate a password I will use openssl
 
 `-1` to specify md5
 
+`-6` to specify SHA512
+
 `-salt 'XXXX' 'XXXXXXXX'` to specify a salt and password
 
 The hash that is generated can be broken down as:
@@ -19,7 +21,7 @@ The hash that is generated can be broken down as:
 
 the $ is just used as a break
 
-### Brocade passwords are md5 with a salt of 3 digits 2 dots and 3 more digits
+### Brocade passwords are md5 (type 1) with a salt of 3 digits 2 dots and 3 more digits
 
 `openssl passwd -1 -salt 'iU0..Rl3' 'password_here'`
 
@@ -34,7 +36,7 @@ Insert the resulting hash into Brocade CLI as:
 `enable super-user-password 8 $1$We0..yY2$z6edearokotDKDuUvWF1Y0`
 
 
-### Juniper and PaloAlto passwords are md5 with an 8 digit salt
+### Juniper and PaloAlto passwords are md5 (type 1) with an 8 digit salt
 
 `openssl passwd -1 -salt '0Rr56/RP' 'password_here'`
 
@@ -66,7 +68,7 @@ Palo Alto hash goes into the .xml
 </users>
 ```
 
-### Cisco uses md5 with a 4 digit salt
+### Cisco uses md5 (type 1) with a 4 digit salt
 
 `openssl passwd -1 -salt '6VxN' 'password_here'`
 
