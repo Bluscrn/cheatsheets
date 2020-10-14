@@ -2,15 +2,10 @@
 
 In order to generate a password I will use openssl
 
-`openssl passwd` is the command
-
-`-1` to specify md5
-
-`-6` to specify SHA512
-
-`-salt 'XXXX' 'XXXXXXXX'` to specify a salt and password
+`openssl passwd` is the base command `-1` to specify md5 or `-6` to specify SHA512 `-salt 'XXXX' to specify a salt 'XXXXXXXX'`  finally add the password
 
 The hash that is generated can be broken down as:
+
 `$1$6VxN$KIkMlzDLjfVgLqKvTXfT30`
 
 `$1` specifies the cipher 1 = md5
