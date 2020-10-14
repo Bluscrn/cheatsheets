@@ -54,9 +54,9 @@ Insert the resulting hash into JunOS as:
 
 `enable secret 5 $1$7Ftt$ylPGNvdFL40JRgBfNcnaL/`
 
-### Riverbed uses SHA512 (type 6) with an 8 digit hash
+### Riverbed uses SHA512 (type 6) with an 8 digit salt
 
-`openssl passwd -6 -salt $(openssl rand -base64 6) 'password_here"`
+`openssl passwd -6 -salt $(openssl rand -base64 6) 'password_here'`
 
 `username "authuser" password 7 $6$DU+5JLS9$GfORbJkJ0K566rABuaRsjBtHuMX.ucPQPoWR27PVBfbjKy7JJNR3btZVOy.nXllHWrnALhssPkT42CIXqWlOw0`
 
