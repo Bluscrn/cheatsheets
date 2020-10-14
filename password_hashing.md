@@ -101,3 +101,17 @@ If you wanted a 4 digit salt
 or
 
 `openssl passwd -1 -salt $(openssl rand -base64 3) ThePassword`
+
+## Testing a password
+
+If a password is generated with: `openssl passwd -6 -salt $(openssl rand -base64 6) 'password_here'`
+
+The result is:
+
+`$6$EoqUptHY$ep.srF47RomDERqYEJwFRl7eOi8oMu155XUOSobYX1BSxenxftFjudUS2a17XRuUf5kaf4l8cuM8.QLLqhBIM1`
+
+If you then try the command again but insert the generated salt `EoqUptHY`, you should get the same hash.
+
+`openssl passwd -6 -salt 'EoqUptHY' 'password_here'`
+
+`$6$EoqUptHY$ep.srF47RomDERqYEJwFRl7eOi8oMu155XUOSobYX1BSxenxftFjudUS2a17XRuUf5kaf4l8cuM8.QLLqhBIM1`
