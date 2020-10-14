@@ -7,7 +7,7 @@ Log into your account and click **Repositories** -> **New**
 ![Github_repo_new](resources/github_repo_new.png)
 
 
-Name the repo, choose Public or Private and click **Create Repository**
+Name the repo, choose **Public** or **Private** and click **Create Repository**
 ![Github_repo_create](resources/github_repo_create.png)
 
 
