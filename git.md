@@ -129,7 +129,7 @@ another/sub-directory/
 
 Add your files to git
 
-`git add --all`
+`git add --all .`
 
 `git remote add origin`  `git@github.com:username/new_repo` where everything after origin is your repo address
 
