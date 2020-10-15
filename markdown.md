@@ -162,6 +162,12 @@ __*bold&italic*__
 
 # Code
 
+```markdown
+`code`
+```
+
+`code`
+
 ```
     4 space indent
     makes a code block
