@@ -1,9 +1,7 @@
 Markdown
 ===
 
-## Reference
-
-### Headers
+# Headers
 
 ```markdown
 # h1
@@ -38,7 +36,7 @@ Header 2
 Header 2
 ---
 
-### Emphasis
+# Emphasis
 
 ```markdown
 *italic*
@@ -70,8 +68,8 @@ __*bold&italic*__
 
 `code`
 
-****
-### Lists
+
+# Lists
 
 ```markdown
 * Item 1
@@ -105,8 +103,8 @@ __*bold&italic*__
 1. Item 1
 2. Item 2
 
-****
-### Links
+
+# Links
 
 ```markdown
 [link](http://google.com)
@@ -127,8 +125,8 @@ __*bold&italic*__
 
 <http://google.com>
 
-****
-### Images
+
+# Images
 
 ```markdown
 ![Image alt text 1](/path/to/img.jpg)
@@ -161,8 +159,8 @@ __*bold&italic*__
 [img2]: https://www.pinnacleadvisory.com/wp-content/uploads/2017/08/retirement-1000x500.jpg
 ![img2]
 
-****
-### Code
+
+# Code
 
 ```
     4 space indent
@@ -193,8 +191,8 @@ codeFences: withLanguage
 codeFences: withLanguage
 ```
 
-****
-### Blockquotes
+
+# Blockquotes
 
 ```markdown
 > This is
@@ -210,8 +208,8 @@ codeFences: withLanguage
 > > Nested
 > > Blockquote
 
-****
-### Horizontal line
+
+# Horizontal lines
 
 ```markdown
 ----
@@ -225,7 +223,7 @@ codeFences: withLanguage
 
 *****
 
-### Tables
+# Tables
 
 ```markdown
 | Column 1 Heading | Column 2 Heading |
