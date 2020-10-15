@@ -182,13 +182,13 @@ code fences
 
 
 ~~~markdown
-```json
-codeFences: withLanguage
+```bash
+codeFences: $(withLanguage)
 ```
 ~~~
 
-```json
-codeFences: withLanguage
+```bash
+codeFences: $(withLanguage)
 ```
 
 
