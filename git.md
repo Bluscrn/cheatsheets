@@ -104,7 +104,7 @@ Copy the repo address
 
 Adding local files to your repository
 ===
- 
+
 In a terminal `cd` to the folder that you want to add to git then:
 
 `git init`
@@ -129,8 +129,91 @@ another/sub-directory/
 
 Add your files to git
 
-`git add .`
+`git add --all`
 
 `git remote add origin`  `git@github.com:username/new_repo` where everything after origin is your repo address
 
 `git push -u origin main`
+
+Git Helper Scripts
+===
+
+### git-v3.sh
+```bash
+#!/bin/bash
+#Created by Eric Dubois
+#Spooned and modified by bluscrn
+
+# start ssh-agent so that ssh keys work with git
+eval "$(ssh-agent -s)"
+
+# checking if I have the latest files from github
+echo "Checking for newer files online first"
+git pull
+
+# Below command will backup everything inside the project folder
+git add --all .
+
+# Give a comment to the commit if you want
+echo "####################################"
+echo "##   Write your commit comment!   ##"
+echo "####################################"
+
+read input
+
+# Committing to the local repository with a message containing the time details and commit text
+
+git commit -m "$input"
+
+# Push the local files to github
+
+git push -u origin
+
+
+echo "################################################################"
+echo "###################    Git Push Done      ######################"
+echo "################################################################"
+```
+
+### git_setup.sh 
+Only run once!
+```bash
+#!/bin/bash
+#Created by Eric Dubois
+#Spooned and modified by bluscrn
+
+# start ssh-agent so that ssh keys work with git
+eval "$(ssh-agent -s)"
+
+set -e
+##################################################################################################################
+# Author 	: 	Eric Dubois
+##################################################################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+##################################################################################################################
+# change into your name and email.
+
+git init
+git config --local user.name "brandon"
+git config --local user.email "server.brandon.glenn3@gmail.com"
+sudo git config --system core.editor subl
+# git config --global credential.helper cache
+# git config --global credential.helper 'cache --timeout=25000'
+git config --local push.default simple
+
+# Read repository address
+echo "################################################################"
+echo "################  Paste Repository Address   ###################"
+echo "################################################################"
+
+read input
+
+# Set remote origin
+git remote add origin "$input"
+
+echo "################################################################"
+echo "###################    T H E   E N D      ######################"
+echo "################################################################"
+```
