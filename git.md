@@ -1,7 +1,9 @@
 Git Cheatsheet
-==============
+===
 
 The first step is to create an account on Github. (Gitea, Gitlab, etc. will be similar)
+
+## Setting up ssh keys
 
 Next click on your profile icon and **Settings**
 
@@ -16,8 +18,6 @@ Click **New SSH Key**
 ![Github_sshadd](resources/github_sshadd.png)
 
 *****
-## SSH Keys
-
 ### Check for existing keys
 
 In a terminal type
@@ -30,7 +30,7 @@ Check the directory listing to see if you already have a public SSH key. By defa
 - id_ecdsa.pub
 - id_ed25519.pub
 
-If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to GitHub, then generate a new SSH key, otherwise skip to [Add your key to the ssh-agent](#add-your-key-to-the-ssh-agent)
+If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to GitHub, then continue on, otherwise skip to [Add your key to the ssh-agent](#add-your-key-to-the-ssh-agent)
 
 ### Generate a key
 
@@ -80,7 +80,7 @@ Name your key with a recognizable **Title** and paste the copied key into the ke
 This key should begin with **ssh-rsa** and end with __*username@hostname*__
 
 Creating a new repository.
---------
+===
 
 Log into your account and click **Repositories** -> **New**
 ![Github_repo_new](resources/github_repo_new.png)
