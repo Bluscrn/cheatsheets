@@ -88,11 +88,13 @@ Log into your account and click **Repositories** -> **New**
 
 ![Github_repo_new](resources/github_repo_new.png)
 
+*****
 
 Name the repo, choose **Public** or **Private** and click **Create Repository**
 
 ![Github_repo_create](resources/github_repo_create.png)
 
+*****
 
 Copy the repo address
 
@@ -100,6 +102,9 @@ Copy the repo address
 
 *****
 
+Adding local files to your repository
+===
+ 
 In a terminal `cd` to the folder that you want to add to git then:
 
 `git init`
@@ -108,7 +113,7 @@ In a terminal `cd` to the folder that you want to add to git then:
 
 `git config --local user.email "Your_Registered_Email@Your_Provider"`
 
-If you only use 
+If you only use one account, you can change `--local` to `--global`
 
 Create a .gitignore file with any editor and add files that you do not want tracked
 
