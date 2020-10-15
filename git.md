@@ -1,4 +1,5 @@
-# Git Cheatsheet
+Git Cheatsheet
+==============
 
 The first step is to create an account on Github. (Gitea, Gitlab, etc. will be similar)
 
@@ -72,15 +73,14 @@ Then copy the output
 
 Back on the Github **New SSH Key** screen
 
-Label your key with a recognizable **Name**
-
-Paste the copied key into the key box
+Name your key with a recognizable **Title** and paste the copied key into the key box
 
 ![Github_sshnew](resources/github_sshnew.png)
 
-This key should begin with ssh-rsa and end with username@hostname
+This key should begin with **ssh-rsa** and end with __*username@hostname*__
 
-##Creating a new repository.
+Creating a new repository.
+--------
 
 Log into your account and click **Repositories** -> **New**
 ![Github_repo_new](resources/github_repo_new.png)
