@@ -3,12 +3,15 @@
 The first step is to create an account on Github. (Gitea, Gitlab, etc. will be similar)
 
 Next click on your profile icon and **Settings**
+
 ![Github_settings](resources/github_settings.png)
 
 Click **SSH and GPG keys** on the left side of the screen
+
 ![Github_sshandgpg](resources/github_sshandgpg.png)
 
 Click **New SSH Key**
+
 ![Github_sshadd](resources/github_sshadd.png)
 
 *****
@@ -26,7 +29,7 @@ Check the directory listing to see if you already have a public SSH key. By defa
 - id_ecdsa.pub
 - id_ed25519.pub
 
-If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to GitHub, then generate a new SSH key, otherwise skip to [Add your key to the ssh-agent](/Add your key to the ssh-agent)
+If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to GitHub, then generate a new SSH key, otherwise skip to [Add your key to the ssh-agent](#add-your-key-to-the-ssh-agent)
 
 ### Generate a key
 
