@@ -71,7 +71,7 @@ Then copy the output
 
 *****
 
-Back on the Github **New SSH Key** screen
+#### Back on the Github **New SSH Key** screen
 
 Name your key with a recognizable **Title** and paste the copied key into the key box
 
@@ -79,14 +79,18 @@ Name your key with a recognizable **Title** and paste the copied key into the ke
 
 This key should begin with **ssh-rsa** and end with __*username@hostname*__
 
+*****
+
 Creating a new repository.
 ===
 
 Log into your account and click **Repositories** -> **New**
+
 ![Github_repo_new](resources/github_repo_new.png)
 
 
 Name the repo, choose **Public** or **Private** and click **Create Repository**
+
 ![Github_repo_create](resources/github_repo_create.png)
 
 
@@ -96,7 +100,7 @@ Copy the repo address
 
 *****
 
-From the folder that you want to add to git:
+In a terminal `cd` to the folder that you want to add to git then:
 
 `git init`
 
@@ -104,20 +108,24 @@ From the folder that you want to add to git:
 
 `git config --local user.email "Your_Registered_Email@Your_Provider"`
 
+If you only use 
+
 Create a .gitignore file with any editor and add files that you do not want tracked
 
 ```txt
-bluscrn_github_setup.sh
+# Example .gitignore #
+github_setup.sh
 git-v2.sh
-ansible-examples.md
-ansible-modules.md
-ansible-roles.md
+untracked.md
+not_ready.md
+directory/
+another/sub-directory/
 ```
 
 Add your files to git
 
 `git add .`
 
-`git remote add origin git@github.com:username/new_repo` where everything after origin is your repo address
+`git remote add origin`  `git@github.com:username/new_repo` where everything after origin is your repo address
 
-`git push -u origin`
+`git push -u origin main`
