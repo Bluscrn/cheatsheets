@@ -1,11 +1,5 @@
----
-title: Markdown
-category: Markup
-layout: 2017/sheet
-prism_languages: [markdown]
-updated: 2020-10-07
-weight: -1
----
+Markdown
+===
 
 ## Reference
 
@@ -29,20 +23,20 @@ weight: -1
 
 ```markdown
 Header 1
-========
+===
 ```
 
 Header 1
-========
+===
 
 
 ```markdown
 Header 2
---------
+---
 ```
 
 Header 2
---------
+---
 
 ### Emphasis
 
@@ -63,6 +57,12 @@ __bold__
 **bold**
 
 __bold__
+
+```markdown
+__*bold&italic*__
+```
+
+__*bold&italic*__
 
 ```markdown
 `code`
