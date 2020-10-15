@@ -147,7 +147,7 @@ __*bold&italic*__
 ![Image alt text 3][img]
 ```
 
-[img]: (resources/retire.jpg)
+[img]: resources/retire.jpg
 ![Image alt text 3][img]
 
 
