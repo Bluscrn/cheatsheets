@@ -132,14 +132,14 @@ __*bold&italic*__
 ![Image alt text 1](/path/to/img.jpg)
 ```
 
-![Image alt text 1](retire.jpg)
+![Image alt text 1](resources/retire.jpg)
 
 
 ```markdown
 ![Image alt text 2](/path/to/img.jpg "title")
 ```
 
-![Image alt text 2](retire.jpg "retire.jpg")
+![Image alt text 2](resources/retire.jpg "retire.jpg")
 
 
 ```markdown
@@ -147,7 +147,7 @@ __*bold&italic*__
 ![Image alt text 3][img]
 ```
 
-[img]: (retire.jpg)
+[img]: (resources/retire.jpg)
 ![Image alt text 3][img]
 
 
