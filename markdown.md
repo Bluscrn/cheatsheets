@@ -106,25 +106,30 @@ __*bold&italic*__
 
 # Links
 
+Typical link
 ```markdown
-[link](http://google.com)
+[google](http://google.com)
 ```
+[google](http://google.com)
 
-[link](http://google.com)
-
+google set as a variable
 ```markdown
 [link][google]
 [google]: http://google.com
 ```
-
 [link](http://google.com)
 
+HTML tags work also
 ```markdown
 <http://google.com>
 ```
-
 <http://google.com>
 
+Location within this document
+```markdown
+[link text](#heading-text)
+```
+[Links](#Links)
 
 # Images
 
