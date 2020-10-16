@@ -132,14 +132,14 @@ __*bold&italic*__
 ![Image alt text 1](/path/to/img.jpg)
 ```
 
-![Image alt text 1](resources/retire.jpg)
+![Image alt text 1](resources/markdown.png)
 
 
 ```markdown
 ![Image alt text 2](/path/to/img.jpg "title")
 ```
 
-![Image alt text 2](resources/retire.jpg "retire.jpg")
+![Image alt text 2](resources/markdown.png "markdown.png")
 
 
 ```markdown
@@ -147,7 +147,7 @@ __*bold&italic*__
 ![Image alt text 3][img]
 ```
 
-[img]: resources/retire.jpg
+[img]: resources/markdown.png
 ![Image alt text 3][img]
 
 
@@ -156,7 +156,7 @@ __*bold&italic*__
 ![img2]
 ```
 
-[img2]: https://www.pinnacleadvisory.com/wp-content/uploads/2017/08/retirement-1000x500.jpg
+[img2]: https://e7.pngegg.com/pngimages/918/742/png-clipart-logo-brand-markdown-others-blue-logo-thumbnail.png
 ![img2]
 
 
