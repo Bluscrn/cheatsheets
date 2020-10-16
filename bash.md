@@ -29,7 +29,8 @@ comment
 '
 ```
 ### String quotes
-Single quotes `''` make __*all*__ charachters literal.
+Single quotes `''` make __*all*__ characters literal.
+
 Double quotes `""` make __*most*__ characters literal.  The following list explains the exceptions.
 
 Character | Purpose
