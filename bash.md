@@ -289,8 +289,8 @@ Numeric operators | Result
 Additional tests supported only by `[[`:
  Test | Result
  ---|---
- STRING = (or ==) PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.
- STRING != PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string does not match the glob pattern.
+ STRING = (or ==) PATTERN | Not string comparison like with `[`, but pattern matching is performed. True if the string matches the glob pattern.
+ STRING != PATTERN | Not string comparison like with `[`, but pattern matching is performed. True if the string does not match the glob pattern.
  STRING =~ REGEX | True if the string matches the regex pattern.
  ( EXPR ) | Parentheses can be used to change the evaluation precedence.
  EXPR && EXPR | Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.
