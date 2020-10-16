@@ -227,8 +227,10 @@ As soon as any branch of the if compound is executed, the remaining branches are
 if [[ "${USER}" = "${NAME}" ]]
 then
   echo "You are ${NAME}"
+  elif [[ "${USER}" = "${name}" ]]
+    then echo "You are NOT ${NAME}, you are ${USER}"
 else
-  echo "You are NOT ${NAME}"
+  echo "Who are you and what do you want?"
 fi
 ```
 ### [[
@@ -303,7 +305,8 @@ Tests exclusive to `[`:
  EXPR -o EXPR | True if either expression is true (logical OR). 
 
 **************************************************************************
-
+**************************************************************************
+**************************************************************************
 ### Functions
 {: id='functions-example'}
 
@@ -316,19 +319,6 @@ echo "You are $(get_name)"
 ```
 
 See: [Functions](#functions)
-
-### Conditionals
-{: id='conditionals-example'}
-
-```bash
-if [[ -z "$string" ]]; then
-  echo "String is empty"
-elif [[ -n "$string" ]]; then
-  echo "String is not empty"
-fi
-```
-
-See: [Conditionals](#conditionals)
 
 ### Strict mode
 
@@ -353,35 +343,6 @@ echo {A,B}.js
 
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
-
-### Substrings
-
-| Expression      | Description                    |
-| --------------- | ------------------------------ |
-| `${FOO:0:3}`    | Substring _(position, length)_ |
-| `${FOO:(-3):3}` | Substring from the right       |
-
-### Length
-
-| Expression | Description      |
-| ---------- | ---------------- |
-| `${#FOO}`  | Length of `$FOO` |
-
-### Manipulation
-
-```bash
-STR="HELLO WORLD!"
-echo ${STR,}   
-    > "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  
-    > "hello world!" (all lowercase)
-
-STR="hello world!"
-echo ${STR^}   
-    > "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  
-    > "HELLO WORLD!" (all uppercase)
-```
 
 ### Default values
 
