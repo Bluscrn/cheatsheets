@@ -128,29 +128,27 @@ __*bold&italic*__
 
 # Images
 
+Plain picture
 ```markdown
 ![Image alt text 1](/path/to/img.jpg)
 ```
-
 ![Image alt text 1](resources/markdown.png)
 
-
+Title appears when mouse hovers
 ```markdown
 ![Image alt text 2](/path/to/img.jpg "title")
 ```
-
 ![Image alt text 2](resources/markdown.png "markdown.png")
 
-
+img defined as a variable set to a local path
 ```markdown
 [img]: /path/to/img.jpg
 ![Image alt text 3][img]
 ```
-
 [img]: resources/markdown.png
 ![Image alt text 3][img]
 
-
+img2 set as a variable to a remote path
 ```markdown
 [img2]: http://foo.com/img.jpg
 ![img2]
