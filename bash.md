@@ -252,39 +252,39 @@ The first test checks whether $name matches the _pattern_ in $foo. The second te
 Tests supported by [ (also known as test) and [[:
  Test | Explanation
  ---|---
-    -e FILE | True if file exists.
-    -f FILE | True if file is a regular file.
-    -d FILE | True if file is a directory.
-    -h FILE | True if file is a symbolic link.
-    -p PIPE | True if pipe exists.
-    -r FILE | True if file is readable by you.
-    -s FILE | True if file exists and is not empty.
-    -t FD  | True if FD is opened on a terminal.
-    -w FILE | True if the file is writable by you.
-    -x FILE | True if the file is executable by you.
-    -O FILE | True if the file is effectively owned by you.
-    -G FILE | True if the file is effectively owned by your group.
-    FILE -nt FILE | True if the first file is newer than the second.
-    FILE -ot FILE | True if the first file is older than the second.
-    -z STRING | True if the string is empty (it's length is zero).
-    -n STRING | True if the string is not empty (it's length is not zero).
+ -e FILE | True if file exists.
+ -f FILE | True if file is a regular file.
+ -d FILE | True if file is a directory.
+ -h FILE | True if file is a symbolic link.
+ -p PIPE | True if pipe exists.
+ -r FILE | True if file is readable by you.
+ -s FILE | True if file exists and is not empty.
+ -t FD  | True if FD is opened on a terminal.
+ -w FILE | True if the file is writable by you.
+ -x FILE | True if the file is executable by you.
+ -O FILE | True if the file is effectively owned by you.
+ -G FILE | True if the file is effectively owned by your group.
+ FILE -nt FILE | True if the first file is newer than the second.
+ FILE -ot FILE | True if the first file is older than the second.
+ -z STRING | True if the string is empty (it's length is zero).
+ -n STRING | True if the string is not empty (it's length is not zero).
 
-String operators | Explanation
----|---
-  STRING = STRING | True if the first string is identical to the second.
-  STRING != STRING | True if the first string is not identical to the second.
-  STRING < STRING | True if the first string sorts before the second.
-  STRING > STRING | True if the first string sorts after the second. 
-  ! EXPR | Inverts the result of the expression (logical NOT).
+ String operators | Explanation
+ ---|---
+ STRING = STRING | True if the first string is identical to the second.
+ STRING != STRING | True if the first string is not identical to the second.
+ STRING < STRING | True if the first string sorts before the second.
+ STRING > STRING | True if the first string sorts after the second. 
+ ! EXPR | Inverts the result of the expression (logical NOT).
 
 Numeric operators | Explanation
 ---|---
-        INT -eq INT | True if both integers are identical.
-        INT -ne INT | True if the integers are not identical.
-        INT -lt INT | True if the first integer is less than the second.
-        INT -gt INT | True if the first integer is greater than the second.
-        INT -le INT | True if the first integer is less than or equal to the second.
-        INT -ge INT | True if the first integer is greater than or equal to the second. 
+ INT -eq INT | True if both integers are identical.
+ INT -ne INT | True if the integers are not identical.
+ INT -lt INT | True if the first integer is less than the second.
+ INT -gt INT | True if the first integer is greater than the second.
+ INT -le INT | True if the first integer is less than or equal to the second.
+ INT -ge INT | True if the first integer is greater than or equal to the second. 
 
 Additional tests supported only by [[:
 
