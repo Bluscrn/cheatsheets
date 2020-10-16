@@ -45,6 +45,7 @@ Header 2
 _italic_
 ```
 *italic*
+
 _italic_
 
 ```markdown
@@ -52,6 +53,7 @@ _italic_
 __bold__
 ```
 **bold**
+
 __bold__
 
 ```markdown
@@ -61,38 +63,42 @@ __*bold&italic*__
 
 # Lists
 
+Asterisks and dashes are interchangable
+4 spaces to add a sublevel
 ```markdown
 * Item 1
-* Item 2
+    * Item 1a
+- Item 2
+    - Item 2a
+        * Item 2b
 ```
-
 * Item 1
-* Item 2
+    * Item 1a
+- Item 2
+    - Item 2a
+        * Item 2b
 
 ```markdown
-- Item 1
-- Item 2
+1. Item 1
+    1. Item 1i
+2. Item 2
+    1. Item 2i
+        1. Item 2ia
+    2. Item 2ii
 ```
-
-- Item 1
-- Item 2
+1. Item 1
+    1. Item 1i
+2. Item 2
+    1. Item 2i
+        1. Item 2ia
+    2. Item 2ii
 
 ```markdown
 - [ ] Checkbox off
 - [x] Checkbox on
 ```
-
 - [ ] Checkbox off
 - [x] Checkbox on
-
-```markdown
-1. Item 1
-2. Item 2
-```
-
-1. Item 1
-2. Item 2
-
 
 # Links
 
