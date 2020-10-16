@@ -139,6 +139,7 @@ Git Helper Scripts
 ===
 
 ### git-v3.sh
+Starts the ssh-agent, checks the remote repo and pulls new files if necessary, adds all files in the project folder to git, asks for a commit statement, commits the changes and pushes everything to the remote origin.
 ```bash
 #!/bin/bash
 #Created by Eric Dubois
@@ -177,6 +178,8 @@ echo "################################################################"
 
 ### git_setup.sh 
 Only run once!
+
+Sets up the local repo, attaches it to the remote repo and configures default editor for git
 ```bash
 #!/bin/bash
 #Created by Eric Dubois
@@ -196,8 +199,8 @@ set -e
 # change into your name and email.
 
 git init
-git config --local user.name "brandon"
-git config --local user.email "server.brandon.glenn3@gmail.com"
+git config --local user.name "Your_git_Username"
+git config --local user.email "Your_Registered_Email@Your_Provider"
 sudo git config --system core.editor subl
 # git config --global credential.helper cache
 # git config --global credential.helper 'cache --timeout=25000'
