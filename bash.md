@@ -35,14 +35,14 @@ Double quotes `""` make __*most*__ characters literal.  The following list expla
 
 Character | Purpose
 --- | ---
-$ | Expansion
+$ | Expansion — introduces various types of expansion: Parameter expansion: `$var or ${var}`, Command substitution: `$(command)` or Arithmetic expansion `$((expression))`.
 ' | Backward compatibility with other shells for Command substitution
 ! | Negate — used to negate or reverse a test or exit status. For example: `! grep text file; exit $?`
 \ | Escape — (backslash) prevents the next character from being interpreted as a special character. This works outside of quoting, inside double quotes, and generally ignored in single quotes
-`* ?` | Globs -- "wildcard" characters which match parts of filenames (e.g. ls *.txt)
+`* ?` | Globs -- "wildcard" characters which match parts of filenames. For example: `ls *.txt`
 @ | Glob -- When ‘@’ is used and the expansion appears within double quotes, each key expands to a separate word
 
-Parameter expansions (and all other value expansions) should always be double-quoted.
+Expansions should **always** be double-quoted.
 ```bash
 NAME="John"
 echo "Hi $NAME"  
