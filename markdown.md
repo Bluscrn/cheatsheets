@@ -19,6 +19,8 @@ Markdown
 ##### h5
 ###### h6
 
+Headers with seperators
+
 ```markdown
 Header 1
 ===
@@ -42,32 +44,20 @@ Header 2
 *italic*
 _italic_
 ```
-
 *italic*
-
 _italic_
 
 ```markdown
 **bold**
 __bold__
 ```
-
 **bold**
-
 __bold__
 
 ```markdown
 __*bold&italic*__
 ```
-
 __*bold&italic*__
-
-```markdown
-`code`
-```
-
-`code`
-
 
 # Lists
 
