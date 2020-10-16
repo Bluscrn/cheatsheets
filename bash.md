@@ -249,8 +249,8 @@ foo=[a-z]* name=John Smith
 ```
 The first test checks whether $name matches the _pattern_ in $foo. The second test checks whether $name is equal to the _string_ in $foo. The quotes really do make that much difference -- a subtlety worth noting. 
 
-Tests supported by [ (also known as test) and [[:
- Test | Explanation
+Tests supported by `[` and `[[`:
+ Test | Result
  ---|---
  -e FILE | True if file exists.
  -f FILE | True if file is a regular file.
@@ -269,7 +269,7 @@ Tests supported by [ (also known as test) and [[:
  -z STRING | True if the string is empty (it's length is zero).
  -n STRING | True if the string is not empty (it's length is not zero).
 
- String operators | Explanation
+ String operators | Result
  ---|---
  STRING = STRING | True if the first string is identical to the second.
  STRING != STRING | True if the first string is not identical to the second.
@@ -277,7 +277,7 @@ Tests supported by [ (also known as test) and [[:
  STRING > STRING | True if the first string sorts after the second. 
  ! EXPR | Inverts the result of the expression (logical NOT).
 
-Numeric operators | Explanation
+Numeric operators | Result
 ---|---
  INT -eq INT | True if both integers are identical.
  INT -ne INT | True if the integers are not identical.
@@ -286,25 +286,22 @@ Numeric operators | Explanation
  INT -le INT | True if the first integer is less than or equal to the second.
  INT -ge INT | True if the first integer is greater than or equal to the second. 
 
-Additional tests supported only by [[:
+Additional tests supported only by `[[`:
+ Test | Result
+ ---|---
+ STRING = (or ==) PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.
+ STRING != PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string does not match the glob pattern.
+ STRING =~ REGEX | True if the string matches the regex pattern.
+ ( EXPR ) | Parentheses can be used to change the evaluation precedence.
+ EXPR && EXPR | Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.
+ EXPR || EXPR | Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true. 
 
-    STRING = (or ==) PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.
+Tests exclusive to `[`:
+ Test | Result
+ ---|---
+ EXPR -a EXPR | True if both expressions are true (logical AND).
+ EXPR -o EXPR | True if either expression is true (logical OR). 
 
-    STRING != PATTERN | Not string comparison like with [ (or test), but pattern matching is performed. True if the string does not match the glob pattern.
-
-    STRING =~ REGEX | True if the string matches the regex pattern.
-
-    ( EXPR ) | Parentheses can be used to change the evaluation precedence.
-
-    EXPR && EXPR | Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.
-
-    EXPR || EXPR | Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true. 
-
-Tests exclusive to [ (and test):
-
-    EXPR -a EXPR | True if both expressions are true (logical AND).
-
-    EXPR -o EXPR | True if either expression is true (logical OR). 
 **************************************************************************
 
 ### Functions
