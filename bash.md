@@ -1,57 +1,202 @@
----
-title: Bash scripting
-category: CLI
-layout: 2017/sheet
-tags: [Featured]
-updated: 2020-07-05
-keywords:
-  - Variables
-  - Functions
-  - Interpolation
-  - Brace expansions
-  - Loops
-  - Conditional execution
-  - Command substitution
----
-
-Getting started
----------------
-{: .-three-column}
-
-### Introduction
-{: .-intro}
-
+# BASH
+## Introduction
 This is a quick reference to getting started with Bash scripting.
 
-- [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
-- [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+- [BashGuide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
+- [NewBashGuide](https://guide.bash.academy/) _(guide.bash.academy)_
 
-### Example
+### hashbang
+The hashbang tells the kernel what interpreter it needs to use to understand the language in a file, and where to find it.
 
+`#! /bin/bash`
+
+This is a typical bash hashbang in a linux system, and should be the first line in a **bash script**.
+### Bash Script
+What's a **bash script**? It's a file with bash code in it that can be executed by the kernel just like any other program on your computer.
 ```bash
-#!/usr/bin/env bash
-
-NAME="John"
-echo "Hello $NAME!"
+#! /bin/bash
+echo "Hello ${USER}, I hope you are doing well"
 ```
-
-### Variables
-
+### Comments
 ```bash
-NAME="John"
-echo $NAME
-echo "$NAME"
-echo "${NAME}!"
+# Single line comment
 ```
-
+```bash
+: '
+This is a
+multi line
+comment
+'
+```
 ### String quotes
+Single quotes `''` make __*all*__ charachters literal.
+Double quotes `""` make __*most*__ characters literal.  The following list explains the exceptions.
 
+Character | Purpose
+--- | ---
+$ | Expansion
+'' | Backward compatibility with other shells for Command substitution
+! | Negate — used to negate or reverse a test or exit status. For example: `! grep text file; exit $?`
+\ | Escape — (backslash) prevents the next character from being interpreted as a special character. This works outside of quoting, inside double quotes, and generally ignored in single quotes
+* ? | Globs -- "wildcard" characters which match parts of filenames (e.g. ls *.txt)
+@ | Glob -- When ‘@’ is used and the expansion appears within double quotes, each key expands to a separate word
+
+Parameter expansions (and all other value expansions) should always be double-quoted.
 ```bash
 NAME="John"
-echo "Hi $NAME"  #=> Hi John
-echo 'Hi $NAME'  #=> Hi $NAME
+echo "Hi $NAME"  
+    > Hi John
+echo 'Hi $NAME'  
+    > Hi $NAME
+```
+## Variables
+### Pre-Defined Variables
+#### Environment Variables
+```bash
+echo "${TERM}"
+    > xterm-256color
+echo "${USER}"
+    > john
+echo "${HOME}"
+    > /home/john
+echo "${PATH}"
+    > /usr/local/sbin:/usr/local/bin:/usr/sbin
+echo "${LANG}"
+    > en_US.UTF-8
+```
+#### Bash Variables
+```bash
+echo "${BASH}"
+    > /bin/bash
+echo "${BASH_VERSION}"
+    > 5.0.17(1)-release
+echo "${BASHPID}"
+    > 71399
+echo "${HOSTNAME}"
+    > xps15
+echo "${UID}"
+    > 1000
+```
+### Defining variables
+Ensure there aren't any spaces around the `=`
+```bash
+NAME="John Smith" 
+url="https://github.com/Bluscrn/cheatsheets/blob/main/bash.md"
+echo $NAME # Not recommended
+    > John Smith
+echo "$NAME" # Prefered method
+    > John Smith
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+```
+## Parameter Expansion
+### Adding Text
+```bash
+NAME="John Smith"
+echo "Hey ${NAME}, I added text!"
+    > Hey John Smith, I added text!
+echo "Go to ${url} to see how it's done."
+    > Go to https://github.com/Bluscrn/cheatsheets/blob/main/bash.md to see how it's done.
+```
+### Slicing
+`${var%pattern}` Remove the **shortest** string that matches the pattern if it's at the **end** of the value.
+```bash
+echo "$NAME"
+    > John Smith
+echo "${NAME% *}"
+    > John
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url%/*}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main
+```
+`${var%%pattern}` Remove the **longest** string that matches the pattern if it's at the **end** of the value.
+```bash
+echo "$NAME"
+    > John Smith
+echo "${NAME%% *}"
+    > John
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url%%/*}"
+    > https:
+```
+`${var#pattern}` Remove the **shortest** string that matches the pattern if it's at the **start** of the value.
+```bash
+echo "$NAME"
+    > John Smith
+echo "${NAME#* }"
+    > Smith
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url#*/}"
+    > /github.com/Bluscrn/cheatsheets/blob/main/bash.md
+```
+`${var##pattern}` Remove the **longest** string that matches the pattern if it's at the **start** of the value.
+```bash
+echo "${NAME##* }"
+    > Smith
+echo "${url##*/}"
+    > bash.md
+```
+`${var:start[:length]}` Expand a part of the value, starting at start, length bytes long. You can even count start from the end rather than the beginning by using a space followed by a negative value.
+```bash
+echo "${url:8}"
+    > github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url:8:10}"
+    > github.com
+echo "${url: -7}"
+    > bash.md
+echo "${url: -29:11}"
+    > cheatsheets
+```
+### Substitution
+`${var/pattern/replacement}` Replace the **first** string that matches the pattern with the replacement.
+```bash
+echo "${PATH}"
+    > /usr/local/sbin:/usr/local/bin:/usr/sbin
+echo "${PATH/:/, }"
+    > /usr/local/sbin, /usr/local/bin:/usr/sbin
+```
+`${var//pattern/replacement}` Replace **each** string that matches the pattern with the replacement.
+```bash
+echo "${PATH}"
+    > /usr/local/sbin:/usr/local/bin:/usr/sbin
+echo "${PATH//:/, }"
+    > /usr/local/sbin, /usr/local/bin, /usr/sbin
+```
+`${var/#pattern/replacement}` Replace the string that matches the pattern at the **beginning** of the value with the replacement.
+```bash
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url/#*:/http:}"
+    > http://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+```
+`${var/%pattern/replacement}` Replace the string that matches the pattern at the **end** of the value with the replacement.
+```bash
+echo "${url}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url/%.md/.lol}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.lol
+```
+`${#var}` Expand the length of the value (in bytes).
+```bash
+echo "${#url}"
+    > 56
+```
+`${var[^|^^|,|,,][pattern]}` Expand the transformed value, either upper-casing or lower-casing the first or all characters that match the pattern. You can omit the pattern to match any character.
+```bash
+echo "${url^}"
+    > Https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url^^}"
+    > HTTPS://GITHUB.COM/BLUSCRN/CHEATSHEETS/BLOB/MAIN/BASH.MD
+echo "${url,}"
+    > https://github.com/Bluscrn/cheatsheets/blob/main/bash.md
+echo "${url,,}"
+    > https://github.com/bluscrn/cheatsheets/blob/main/bash.md
 ```
 
+**************************************************************************
 ### Shell execution
 
 ```bash
@@ -119,88 +264,6 @@ echo {A,B}.js
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
 
-Parameter expansions
---------------------
-{: .-three-column}
-
-### Basics
-
-```bash
-name="John"
-echo ${name}
-echo ${name/J/j}    #=> "john" (substitution)
-echo ${name:0:2}    #=> "Jo" (slicing)
-echo ${name::2}     #=> "Jo" (slicing)
-echo ${name::-1}    #=> "Joh" (slicing)
-echo ${name:(-1)}   #=> "n" (slicing from right)
-echo ${name:(-2):1} #=> "h" (slicing from right)
-echo ${food:-Cake}  #=> $food or "Cake"
-```
-
-```bash
-length=2
-echo ${name:0:length}  #=> "Jo"
-```
-
-See: [Parameter expansion](http://wiki.bash-hackers.org/syntax/pe)
-
-```bash
-STR="/path/to/foo.cpp"
-echo ${STR%.cpp}    # /path/to/foo
-echo ${STR%.cpp}.o  # /path/to/foo.o
-echo ${STR%/*}      # /path/to
-
-echo ${STR##*.}     # cpp (extension)
-echo ${STR##*/}     # foo.cpp (basepath)
-
-echo ${STR#*/}      # path/to/foo.cpp
-echo ${STR##*/}     # foo.cpp
-
-echo ${STR/foo/bar} # /path/to/bar.cpp
-```
-
-```bash
-STR="Hello world"
-echo ${STR:6:5}   # "world"
-echo ${STR: -5:5}  # "world"
-```
-
-```bash
-SRC="/path/to/foo.cpp"
-BASE=${SRC##*/}   #=> "foo.cpp" (basepath)
-DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
-```
-
-### Substitution
-
-| Code              | Description         |
-| ----------------- | ------------------- |
-| `${FOO%suffix}`   | Remove suffix       |
-| `${FOO#prefix}`   | Remove prefix       |
-| ---               | ---                 |
-| `${FOO%%suffix}`  | Remove long suffix  |
-| `${FOO##prefix}`  | Remove long prefix  |
-| ---               | ---                 |
-| `${FOO/from/to}`  | Replace first match |
-| `${FOO//from/to}` | Replace all         |
-| ---               | ---                 |
-| `${FOO/%from/to}` | Replace suffix      |
-| `${FOO/#from/to}` | Replace prefix      |
-
-### Comments
-
-```bash
-# Single line comment
-```
-
-```bash
-: '
-This is a
-multi line
-comment
-'
-```
-
 ### Substrings
 
 | Expression      | Description                    |
@@ -218,12 +281,16 @@ comment
 
 ```bash
 STR="HELLO WORLD!"
-echo ${STR,}   #=> "hELLO WORLD!" (lowercase 1st letter)
-echo ${STR,,}  #=> "hello world!" (all lowercase)
+echo ${STR,}   
+    > "hELLO WORLD!" (lowercase 1st letter)
+echo ${STR,,}  
+    > "hello world!" (all lowercase)
 
 STR="hello world!"
-echo ${STR^}   #=> "Hello world!" (uppercase 1st letter)
-echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+echo ${STR^}   
+    > "Hello world!" (uppercase 1st letter)
+echo ${STR^^}  
+    > "HELLO WORLD!" (all uppercase)
 ```
 
 ### Default values
@@ -652,7 +719,8 @@ python hello.py < foo.txt      # feed foo.txt to stdin for python
 
 ```bash
 command -V cd
-#=> "cd is a function/alias/whatever"
+
+    > "cd is a function/alias/whatever"
 ```
 
 ### Trap errors
@@ -696,13 +764,16 @@ source "${0%/*}/../share/foo.sh"
 
 ```bash
 printf "Hello %s, I'm %s" Sven Olga
-#=> "Hello Sven, I'm Olga
+
+    > "Hello Sven, I'm Olga
 
 printf "1 + 1 = %d" 2
-#=> "1 + 1 = 2"
+
+    > "1 + 1 = 2"
 
 printf "This is how you print a float: %f" 2
-#=> "This is how you print a float: 2.000000"
+
+    > "This is how you print a float: 2.000000"
 ```
 
 ### Directory of script
